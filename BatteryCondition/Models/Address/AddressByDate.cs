@@ -7,6 +7,7 @@ namespace BatteryCondition.Models
 {
     public class AddressByDate
     {
+        public int AddressByDateId { get; set; }
         public House House { get; set; }
         public DateTime DateTime { get; set; }
     }
