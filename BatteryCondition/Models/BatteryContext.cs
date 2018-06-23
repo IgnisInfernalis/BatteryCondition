@@ -13,10 +13,26 @@ namespace BatteryCondition.Models
         public DbSet<BatteryModel> BatteryModels { get; set; }
         public DbSet<BatteryCondition> BatteryConditions { get; set; }
         public DbSet<CapacityByDate> CapacityByDates { get; set; }
+        public DbSet<BatteryPack> BatteryPacks { get; set; }
+        public DbSet<BatteryConditionBatteryPack> BatteryConditionBatteryPacks { get; set; }
 
         public BatteryContext(DbContextOptions<BatteryContext> options) : base(options)
         {
             Database.EnsureCreated();
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<BatteryConditionBatteryPack>()
+                .HasKey(bcbp => new { bcbp.BatteryConditionId, bcbp.BatteryPackId });
+            modelBuilder.Entity<BatteryConditionBatteryPack>()
+                .HasOne(bcbp => bcbp.BatteryCondition)
+                .WithMany(bc => bc.BatteryConditionBatteryPacks)
+                .HasForeignKey(bcbp => bcbp.BatteryConditionId);
+            modelBuilder.Entity<BatteryConditionBatteryPack>()
+                .HasOne(bcbp => bcbp.BatteryPack)
+                .WithMany(bp => bp.BatteryConditionBatteryPacks)
+                .HasForeignKey(bcbp => bcbp.BatteryPackId);
         }
     }
 }

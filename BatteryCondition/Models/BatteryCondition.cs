@@ -13,8 +13,16 @@ namespace BatteryCondition.Models
 
         public int BatteryModelId { get; set; }
         public BatteryModel BatteryModel { get; set; }
-        public bool BatteryPack { get; set; }
+        //public bool BatteryPack { get; set; }
         public virtual List<AddressByDate> AddressByDates { get; set; }
         public virtual List<CapacityByDate> CapacityByDates { get; set; }
+        //public virtual List<BatteryPack> BatteryPacks { get; set; }
+
+        public virtual List<BatteryConditionBatteryPack> BatteryConditionBatteryPacks { get; set; }
+
+        /*public BatteryCondition()
+        {
+            BatteryPacks = new List<BatteryPack>();
+        }*/
     }
 }
