@@ -12,5 +12,11 @@ namespace BatteryCondition.Models
 
         public int StreetId { get; set; }
         public Street Street { get; set; }
+
+        public House (string houseNmber, Street street)
+        {
+            HouseNumber = houseNmber;
+            Street = street;
+        }
     }
 }

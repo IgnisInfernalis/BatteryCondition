@@ -14,4 +14,9 @@
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.4" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Models\Address\" />
+    <Folder Include="Models\Battery\" />
+  </ItemGroup>
+
 </Project>

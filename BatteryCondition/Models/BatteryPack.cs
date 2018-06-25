@@ -11,7 +11,7 @@ namespace BatteryCondition.Models
         public AddressByDate AddressByDate { get; set; }
         // public virtual List<BatteryCondition> BatteryConditions { get; set; }
 
-        public virtual List<BatteryConditionBatteryPack> BatteryConditionBatteryPacks { get; set; }
+        public virtual ICollection<BatteryConditionBatteryPack> BatteryConditionBatteryPacks { get; set; }
         /*public BatteryPack()
         {
             BatteryConditions = new List<BatteryCondition>();
