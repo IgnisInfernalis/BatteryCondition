@@ -10,15 +10,7 @@ namespace BatteryCondition.Models
         public int StreetId { get; set; }
         public string StreetName { get; set; }
 
-        public int CityId { get; set; }
-        public City City { get; set; }
+        public City City { get; set; }  // односторонняя связь один-ко-многим
 
-        // public Street() { }
-        /*public Street(string streetName, City city)
-        {
-            StreetName = streetName;
-            //CityId = city.CityId;
-            City = city;
-        }*/
     }
 }

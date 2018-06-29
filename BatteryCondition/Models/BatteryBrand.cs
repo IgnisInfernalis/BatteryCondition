@@ -9,5 +9,7 @@ namespace BatteryCondition.Models
     {
         public int BatteryBrandId { get; set; }
         public string BatteryBrandName { get; set; }
+
+        public virtual ICollection<BatteryModel> BatteryModels { get; set; }
     }
 }

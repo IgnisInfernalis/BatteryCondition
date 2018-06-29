@@ -13,7 +13,7 @@ namespace BatteryCondition.Models
         public float Capacity { get; set; }
         public DateTime DateTime { get; set; }
 
-        public int BatteryConditionId { get; set; }
+        public int? BatteryConditionId { get; set; }
         public BatteryCondition BatteryCondition { get; set; }
     }
 }

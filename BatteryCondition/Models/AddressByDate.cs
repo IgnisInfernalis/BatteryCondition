@@ -10,10 +10,10 @@ namespace BatteryCondition.Models
     public class AddressByDate
     {
         public int AddressByDateId { get; set; }
-        public House House { get; set; }
+        public House House { get; set; } // односторонняя связь один-ко-многим
         public DateTime DateTime { get; set; }
 
-        public int BatteryConditionId { get; set; }
+        public int? BatteryConditionId { get; set; }
         public BatteryCondition BatteryCondition { get; set; }
     }
 }

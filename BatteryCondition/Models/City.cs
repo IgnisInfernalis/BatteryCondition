@@ -9,12 +9,6 @@ namespace BatteryCondition.Models
     {
         public int CityId { get; set; }
         public string CityName { get; set; }
-        //public City() { }
-        /*public City(string cityName)
-        {
-            CityName = cityName;
-        }
-        */
     }
 
 }
