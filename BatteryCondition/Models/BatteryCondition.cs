@@ -10,18 +10,18 @@ namespace BatteryCondition.Models
     {
         public int BatteryConditionId { get; set; }
         public int BatteryLocalId { get; set; }
-        public bool IsBatteryPack { get; set; }
+        //public bool BatteryPack { get; set; }
 
         public int? BatteryModelId { get; set; }
         public BatteryModel BatteryModel { get; set; }
         
         public virtual ICollection<AddressByDate> AddressByDates { get; set; }
         public virtual ICollection<CapacityByDate> CapacityByDates { get; set; }
-        public virtual ICollection<BatteryConditionBatteryPack> BatteryConditionBatteryPacks { get; set; }
+        public virtual ICollection<BatteryConditionBatteryPack> BatteryConditionBatteryPack { get; set; }
         
         public BatteryCondition()
         {
-            BatteryConditionBatteryPacks = new List<BatteryConditionBatteryPack>();
+            BatteryConditionBatteryPack = new List<BatteryConditionBatteryPack>();
         }
     }
 }

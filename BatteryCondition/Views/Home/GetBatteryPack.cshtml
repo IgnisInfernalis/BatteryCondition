@@ -1,0 +1,30 @@
+﻿
+@{
+    Layout = null;
+}
+@model BatteryPack
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>GetBatteryPack</title>
+</head>
+<body>
+    <table>
+        <tr>
+            
+            <td>Адрес</td>
+            <td>Дата установки</td>
+            
+        </tr>
+        <tr>
+            
+            <td>@Model.AddressByDate.House.Street.StreetName @Model.AddressByDate.House.HouseNumber</td>
+            <td>@Model.AddressByDate.DateTime.Date</td>
+            
+        </tr>
+    </table>
+</body>
+</html>

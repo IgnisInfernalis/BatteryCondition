@@ -1,0 +1,37 @@
+﻿
+@model BatteryCondition
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Состояние АКБ</title>
+</head>
+<body>
+    <!-- <h3>Состояние АКБ производителя  модели  Номер </h3> -->
+    <table>
+        <tr>
+            <td>Номер АКБ</td>
+            <td>Модель АКБ</td>
+            <td>Адрес</td>
+            <td>Дата установки</td>
+            <td>Емкость</td>
+            <td>Батарейный блок</td>
+        </tr>
+        <tr>
+            <td>@Model.BatteryLocalId</td>
+            <td>@Model.BatteryModel.BatteryBrand.BatteryBrandName @Model.BatteryModel.BatteryModelName</td>
+            <td>@Model.AddressByDates.Last().House.Street.StreetName @Model.AddressByDates.Last().House.HouseNumber</td>
+            <td>@Model.AddressByDates.Last().DateTime.Date</td>
+            <td></td>
+            <td><a href="/Home/GetBatteryPack/@Model.BatteryConditionBatteryPack.Last().BatteryPackId">
+                @Model.BatteryConditionBatteryPack.Last().BatteryPack.AddressByDate.House.Street.StreetName
+                @Model.BatteryConditionBatteryPack.Last().BatteryPack.AddressByDate.House.HouseNumber </a>
+            </td>
+        </tr>
+    </table>
+
+</body>
+</html>

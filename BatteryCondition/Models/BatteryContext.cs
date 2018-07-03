@@ -27,7 +27,7 @@ namespace BatteryCondition.Models
                 .HasKey(bcbp => new { bcbp.BatteryConditionId, bcbp.BatteryPackId });
             modelBuilder.Entity<BatteryConditionBatteryPack>()
                 .HasOne(bcbp => bcbp.BatteryCondition)
-                .WithMany(bc => bc.BatteryConditionBatteryPacks)
+                .WithMany(bc => bc.BatteryConditionBatteryPack)
                 .HasForeignKey(bcbp => bcbp.BatteryConditionId);
             modelBuilder.Entity<BatteryConditionBatteryPack>()
                 .HasOne(bcbp => bcbp.BatteryPack)

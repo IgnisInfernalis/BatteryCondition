@@ -65,13 +65,13 @@ namespace BatteryCondition.Models
             if (!context.AddressByDates.Any())
             {
                 context.AddressByDates.AddRange(
-                    new AddressByDate { House = context.Houses.ToList().Find(h => h.HouseNumber == "240а"), DateTime = DateTime.Today/*,
+                    new AddressByDate { House = context.Houses.ToList().Find(h => h.HouseNumber == "240а"), DateTime = DateTime.Today,
                         BatteryCondition =new BatteryCondition
-                        {
+                        {                            
                             BatteryLocalId = 110,
                             BatteryModel = context.BatteryModels.ToList().Find(b => b.BatteryBrand == (context.Brands.ToList().Find(bb => bb.BatteryBrandName == "Delta"))
                             && b.BatteryModelName == "DTM 12120")
-                        } */}
+                        } }
                     );
             }
             context.SaveChanges();
@@ -82,6 +82,7 @@ namespace BatteryCondition.Models
                     );
             }
             context.SaveChanges();
+
         }
     }
 }
