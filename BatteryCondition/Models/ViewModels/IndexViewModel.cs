@@ -7,5 +7,8 @@ namespace BatteryCondition.Models.ViewModels
 {
     public class IndexViewModel
     {
+        public IEnumerable<BatteryPack> BatteryPacks { get; set; }
+        public IEnumerable<BatteryModel> BatteryModels { get; set; }
+        
     }
 }

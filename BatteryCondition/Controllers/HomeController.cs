@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using BatteryCondition.Models;
+using BatteryCondition.Models.ViewModels;
 using Microsoft.EntityFrameworkCore;
 
 namespace BatteryCondition.Controllers
@@ -16,21 +17,28 @@ namespace BatteryCondition.Controllers
         {
             db = context;
         }
-
         public IActionResult Index()
         {
+            IndexViewModel indexViewModel = new IndexViewModel
+            {
+                BatteryModels = db.BatteryModels.Include(bb => bb.BatteryBrand),
+                BatteryPacks = db.BatteryPacks.Include(bp => bp.BatteryConditionBatteryPacks)
+                .ThenInclude(bcbp => bcbp.BatteryCondition)
+                .ThenInclude(bc => bc.BatteryModel)
+                .ThenInclude(bm => bm.BatteryBrand)
+                .Include(ad => ad.AddressByDate).ThenInclude(h => h.House).ThenInclude(s => s.Street)
+            };
 
-            return View(db.BatteryModels.Include(bb => bb.BatteryBrand));
+            return View(indexViewModel);
         }
-
         [HttpGet]
         public IActionResult GetBatteryConditionsByBatteryModel(int id)
         {
             BatteryModel batteryModel = db.BatteryModels.Include(bb => bb.BatteryBrand)
                 .ToList().Find(bm => bm.BatteryModelId == id);
             ViewBag.BatteryModel = batteryModel;
-            return View(db.BatteryConditions.Include(aa => aa.AddressByDates)
-                .ThenInclude(a => a.House)
+            return View(db.BatteryConditions.Include(ad => ad.AddressByDates)
+                .ThenInclude(h => h.House)
                 .ThenInclude(s => s.Street)
                 .ToList().FindAll(b => b.BatteryModel == batteryModel)
                 );
@@ -48,6 +56,7 @@ namespace BatteryCondition.Controllers
                 .First(i => i.BatteryConditionId == id);
             return View(batteryCondition);
         }
+
         [HttpGet]
         public IActionResult GetBatteryPack(int id)
         {
@@ -56,7 +65,7 @@ namespace BatteryCondition.Controllers
                 .Include(b => b.BatteryConditionBatteryPacks).ThenInclude(bcbp => bcbp.BatteryCondition).First(bp => bp.BatteryPackId == id);
             return View(batteryPack);
         }
-
+        
         /*
         public IActionResult About()
         {

@@ -1,4 +1,5 @@
-﻿@model IEnumerable<BatteryModel>
+﻿@using BatteryCondition.Models.ViewModels
+@model IndexViewModel
 @{ 
     // ViewData["Title"] = "Список моделей АКБ";
     Layout = null;
@@ -6,27 +7,47 @@
 <!DOCTYPE html>
 
 <hnml>
-    <title>Модели АКБ</title>
-
+    <title>Стартовая страница</title>
     <body>
-        <h3>АКБ</h3>
+        <h3>Модели АКБ</h3>
         <table>
             <tr>
                 <td>Модель</td>
                 <td>Паспортная емкость</td>
                 <td>Производитель АКБ</td>
             </tr>
-            @foreach (var modelBattery in Model)
+            @foreach (var modelBattery in Model.BatteryModels)
             {
                 <tr>
-                    <td><a href="~/Home/GetBatteryConditionsByBatteryModel/@modelBattery.BatteryModelId">
-                        @modelBattery.BatteryModelName</a></td>
+                    <td>
+                        <a href="~/Home/GetBatteryConditionsByBatteryModel/@modelBattery.BatteryModelId">
+                            @modelBattery.BatteryModelName
+                        </a>
+                    </td>
                     <td>@modelBattery.BatteryCapacity</td>
                     <td>@modelBattery.BatteryBrand.BatteryBrandName</td>
 
                 </tr>
-
+            }
+        </table>
+        <h3>Батарейные блоки</h3>
+        <table>
+            <tr>
+                <td>Батарейный блок</td>
+                <td>Модель АКБ</td>
+                <td>Кол-во АКБ</td>
+            </tr>
+            @foreach (var pack in Model.BatteryPacks)
+            {
+                <tr>
+                    <td><a href="/Home/GetBatteryPack/@pack.BatteryPackId">
+                        @pack.AddressByDate.House.Street.StreetName @pack.AddressByDate.House.HouseNumber </a></td>
+                    <td>@pack.BatteryConditionBatteryPacks.Last().BatteryCondition.BatteryModel.BatteryBrand.BatteryBrandName 
+                        @pack.BatteryConditionBatteryPacks.Last().BatteryCondition.BatteryModel.BatteryModelName</td>
+                    <td>@pack.BatteryConditionBatteryPacks.Count</td>
+                </tr>
             }
         </table>
     </body>
+
 </hnml>

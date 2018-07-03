@@ -23,12 +23,12 @@
         <tr>
             <td>@Model.BatteryLocalId</td>
             <td>@Model.BatteryModel.BatteryBrand.BatteryBrandName @Model.BatteryModel.BatteryModelName</td>
-            <td>@Model.AddressByDates.Last().House.Street.StreetName @Model.AddressByDates.Last().House.HouseNumber</td>
-            <td>@Model.AddressByDates.Last().DateTime.Date</td>
+            <td>@Model.AddressByDates.LastOrDefault()?.House.Street.StreetName @Model.AddressByDates.LastOrDefault()?.House.HouseNumber</td>
+            <td>@Model.AddressByDates.LastOrDefault()?.DateTime.Date</td>
             <td></td>
-            <td><a href="/Home/GetBatteryPack/@Model.BatteryConditionBatteryPack.Last().BatteryPackId">
-                @Model.BatteryConditionBatteryPack.Last().BatteryPack.AddressByDate.House.Street.StreetName
-                @Model.BatteryConditionBatteryPack.Last().BatteryPack.AddressByDate.House.HouseNumber </a>
+            <td><a href="/Home/GetBatteryPack/@Model.BatteryConditionBatteryPack.LastOrDefault()?.BatteryPackId">
+                @Model.BatteryConditionBatteryPack.LastOrDefault()?.BatteryPack.AddressByDate.House.Street.StreetName
+                @Model.BatteryConditionBatteryPack.LastOrDefault()?.BatteryPack.AddressByDate.House.HouseNumber </a>
             </td>
         </tr>
     </table>

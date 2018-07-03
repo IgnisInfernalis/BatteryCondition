@@ -23,12 +23,12 @@
         {
         <tr>
             <td>
-                <a href="~/Home/GetBatteryCondition/@battery.BatteryConditionId">
+                <a href="~/Home/GetBatteryCondition/@battery?.BatteryConditionId">
                     @battery.BatteryLocalId
                 </a>
             </td>
-            <td>@battery.AddressByDates.Last().House.Street.StreetName @battery.AddressByDates.Last().House.HouseNumber</td>
-            <td>@battery.AddressByDates.Last().DateTime</td>
+            <td>@battery.AddressByDates.LastOrDefault()?.House.Street.StreetName @battery.AddressByDates.LastOrDefault()?.House.HouseNumber</td>
+            <td>@battery.AddressByDates.LastOrDefault()?.DateTime</td>
         </tr>
         }
         </table>
