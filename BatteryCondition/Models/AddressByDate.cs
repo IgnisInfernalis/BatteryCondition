@@ -15,5 +15,6 @@ namespace BatteryCondition.Models
 
         public int? BatteryConditionId { get; set; }
         public BatteryCondition BatteryCondition { get; set; }
+                
     }
 }

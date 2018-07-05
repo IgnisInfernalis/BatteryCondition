@@ -41,13 +41,16 @@
             {
                 <tr>
                     <td><a href="/Home/GetBatteryPack/@pack.BatteryPackId">
-                        @pack.AddressByDate.House.Street.StreetName @pack.AddressByDate.House.HouseNumber </a></td>
+                        @pack.AddressByDate.House.Street.StreetName @pack.AddressByDate.House.HouseNumber</a></td>
                     <td>@pack.BatteryConditionBatteryPacks.Last().BatteryCondition.BatteryModel.BatteryBrand.BatteryBrandName 
                         @pack.BatteryConditionBatteryPacks.Last().BatteryCondition.BatteryModel.BatteryModelName</td>
                     <td>@pack.BatteryConditionBatteryPacks.Count</td>
                 </tr>
             }
         </table>
+        <h3>Добавить АКБ</h3>
+        
+        @Html.ActionLink("Добавление АКБ", "CreateBatteryCondition", "Create")
     </body>
 
 </hnml>

@@ -10,8 +10,7 @@ namespace BatteryCondition.Models
     {
         public int BatteryConditionId { get; set; }
         public int BatteryLocalId { get; set; }
-        //public bool BatteryPack { get; set; }
-
+        
         public int? BatteryModelId { get; set; }
         public BatteryModel BatteryModel { get; set; }
         

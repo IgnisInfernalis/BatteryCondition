@@ -1,0 +1,26 @@
+﻿@using BatteryCondition.Models.ViewModels
+@model CreateBatteryConditionViewModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Добавление АКБ</title>
+</head>
+<body>
+    @using (Html.BeginForm())
+    {
+        <p>Номер АКБ: @Html.TextBoxFor(m => m.BatteryLocalId)</p>
+        <p>Номер дома: @Html.TextBoxFor(m => m.AddressByDate.House.HouseNumber)</p>
+        <p>Улица: @Html.TextBoxFor(m => m.AddressByDate.House.Street.StreetName)</p>
+        <p>Номер модели АКБ @Html.DropDownListFor(m=>m.BatteryModel.BatteryModelId,
+                           new SelectList(Model.BatteryModels, nameof(BatteryModel.BatteryModelId), nameof(BatteryModel.BatteryModelName)))</p>
+        
+        <input type="submit" value="Добавить" />
+    }
+</body>
+</html>

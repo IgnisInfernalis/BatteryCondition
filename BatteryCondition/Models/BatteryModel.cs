@@ -11,7 +11,7 @@ namespace BatteryCondition.Models
         public string BatteryModelName { get; set; }
         public int BatteryCapacity { get; set; }
 
-        public /*virtual*/ ICollection<BatteryCondition> BatteryConditions { get; set; }
+        public virtual ICollection<BatteryCondition> BatteryConditions { get; set; }
 
         public int? BatteryBrandId { get; set; }
         public BatteryBrand BatteryBrand { get; set; }

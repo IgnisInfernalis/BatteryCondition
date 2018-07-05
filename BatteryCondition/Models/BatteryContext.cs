@@ -20,7 +20,7 @@ namespace BatteryCondition.Models
         {
             Database.EnsureCreated();
         }
-
+        
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<BatteryConditionBatteryPack>()
