@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 
 
-namespace BatteryConditionsInventory.Models
+namespace BatteryConditionInventory.Models
 {
     public static class SampleData
     {

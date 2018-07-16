@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace BatteryConditionsInventory.Models
+namespace BatteryConditionInventory.Models
 {
     public class House
     {

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace BatteryConditionsInventory.Models
+namespace BatteryConditionInventory.Models
 {
     //[NotMapped]
     public class CapacityByDate

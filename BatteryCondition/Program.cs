@@ -8,10 +8,10 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.DependencyInjection;
-using BatteryConditionsInventory.Models;
+using BatteryConditionInventory.Models;
 
 
-namespace BatteryConditionsInventory
+namespace BatteryConditionInventory
 {
     public class Program
     {        
