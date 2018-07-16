@@ -1,6 +1,6 @@
 using System;
 
-namespace BatteryCondition.Models
+namespace BatteryConditionsInventory.Models
 {
     public class ErrorViewModel
     {

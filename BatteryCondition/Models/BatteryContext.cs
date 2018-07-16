@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace BatteryCondition.Models
+namespace BatteryConditionsInventory.Models
 {
     public class BatteryContext : DbContext
     {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace BatteryCondition.Models.ViewModels
+namespace BatteryConditionsInventory.Models.ViewModels
 {
     public class CreateBatteryConditionViewModel
     {

@@ -4,11 +4,11 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using BatteryCondition.Models;
-using BatteryCondition.Models.ViewModels;
+using BatteryConditionsInventory.Models;
+using BatteryConditionsInventory.Models.ViewModels;
 using Microsoft.EntityFrameworkCore;
 
-namespace BatteryCondition.Controllers
+namespace BatteryConditionsInventory.Controllers
 {
     public class HomeController : Controller
     {
