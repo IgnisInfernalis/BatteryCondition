@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using BatteryConditionInventory.Infrastructure.Data;
+using BatteryConditionInventory.Core.Entities;
 using Microsoft.AspNetCore.Mvc;
 
 

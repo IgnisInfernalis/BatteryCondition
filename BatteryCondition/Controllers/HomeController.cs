@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc;
 using BatteryConditionInventory.Models;
 using BatteryConditionInventory.Models.ViewModels;
 using Microsoft.EntityFrameworkCore;
+using BatteryConditionInventory.Infrastructure.Data;
+using BatteryConditionInventory.Core.Entities;
 
 namespace BatteryConditionInventory.Controllers
 {
@@ -36,7 +38,7 @@ namespace BatteryConditionInventory.Controllers
         public IActionResult GetBatteryConditionsByBatteryModel(int id)
         {
             BatteryModel batteryModel = db.BatteryModels.Include(bb => bb.BatteryBrand)
-                .ToList().Find(bm => bm.BatteryModelId == id);
+                .ToList().Find(bm => bm.Id == id);
             ViewBag.BatteryModel = batteryModel;
             return View(db.BatteryConditions.Include(ad => ad.AddressByDates)
                 .ThenInclude(h => h.House)
@@ -47,14 +49,14 @@ namespace BatteryConditionInventory.Controllers
         [HttpGet]
         public IActionResult GetBatteryCondition(int id)
         {
-            Models.BatteryCondition batteryCondition = new Models.BatteryCondition();
+            BatteryCondition batteryCondition = new BatteryCondition();
             batteryCondition = db.BatteryConditions
                 .Include(ad => ad.AddressByDates).ThenInclude(h => h.House).ThenInclude(s => s.Street)
                 .Include(bm => bm.BatteryModel).ThenInclude(bb => bb.BatteryBrand)
                 .Include(bcbp => bcbp.BatteryConditionBatteryPack) //пустая таблица сейчас при генерации!
                     .ThenInclude(bp => bp.BatteryPack).ThenInclude(ad => ad.AddressByDate).ThenInclude(h => h.House).ThenInclude(s => s.Street)
                 .Include(cd => cd.CapacityByDates)
-                .First(i => i.BatteryConditionId == id);
+                .First(i => i.Id == id);
             return View(batteryCondition);
         }
 
@@ -63,7 +65,7 @@ namespace BatteryConditionInventory.Controllers
         {
             BatteryPack batteryPack = new BatteryPack();
             batteryPack = db.BatteryPacks.Include(ad => ad.AddressByDate).ThenInclude(h => h.House).ThenInclude(s => s.Street)
-                .Include(b => b.BatteryConditionBatteryPacks).ThenInclude(bcbp => bcbp.BatteryCondition).First(bp => bp.BatteryPackId == id);
+                .Include(b => b.BatteryConditionBatteryPacks).ThenInclude(bcbp => bcbp.BatteryCondition).First(bp => bp.Id == id);
             return View(batteryPack);
         }
         

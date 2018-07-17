@@ -1,4 +1,5 @@
 ﻿@using BatteryConditionInventory.Models.ViewModels
+@using BatteryConditionInventory.Core.Entities
 @model CreateBatteryConditionViewModel
 @{
     Layout = null;
@@ -17,9 +18,11 @@
         <p>Номер АКБ: @Html.TextBoxFor(m => m.BatteryLocalId)</p>
         <p>Номер дома: @Html.TextBoxFor(m => m.AddressByDate.House.HouseNumber)</p>
         <p>Улица: @Html.TextBoxFor(m => m.AddressByDate.House.Street.StreetName)</p>
-        <p>Номер модели АКБ @Html.DropDownListFor(m=>m.BatteryModel.BatteryModelId,
-                           new SelectList(Model.BatteryModels, nameof(BatteryModel.BatteryModelId), nameof(BatteryModel.BatteryModelName)))</p>
-        
+        <p>
+            Номер модели АКБ @Html.DropDownListFor(m=>m.BatteryModel.Id,
+           new SelectList(Model.BatteryModels, nameof(BatteryModel.Id), nameof(BatteryModel.BatteryModelName)))
+        </p>
+
         <input type="submit" value="Добавить" />
     }
 </body>

@@ -9,6 +9,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.DependencyInjection;
 using BatteryConditionInventory.Models;
+using BatteryConditionInventory.Infrastructure.Data;
 
 
 namespace BatteryConditionInventory

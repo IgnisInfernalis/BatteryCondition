@@ -7,7 +7,21 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.1.1" />
+    <Compile Remove="Models\AddressByDate.cs" />
+    <Compile Remove="Models\BatteryBrand.cs" />
+    <Compile Remove="Models\BatteryCondition.cs" />
+    <Compile Remove="Models\BatteryConditionBatteryPack.cs" />
+    <Compile Remove="Models\BatteryContext.cs" />
+    <Compile Remove="Models\BatteryModel.cs" />
+    <Compile Remove="Models\BatteryPack.cs" />
+    <Compile Remove="Models\CapacityByDate.cs" />
+    <Compile Remove="Models\City.cs" />
+    <Compile Remove="Models\House.cs" />
+    <Compile Remove="Models\Street.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.1.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.1.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.1.1" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.1" />
@@ -18,8 +32,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Models\Address\" />
-    <Folder Include="Models\Battery\" />
+    <ProjectReference Include="..\BatteryConditionInventory.Core\BatteryConditionInventory.Core.csproj" />
+    <ProjectReference Include="..\BatteryConditionInventory.Infrastructure\BatteryConditionInventory.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

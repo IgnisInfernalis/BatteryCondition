@@ -1,6 +1,7 @@
 ﻿@using BatteryConditionInventory.Models.ViewModels
+@using BatteryConditionInventory.Core.Entities
 @model IndexViewModel
-@{ 
+@{
     // ViewData["Title"] = "Список моделей АКБ";
     Layout = null;
 }
@@ -20,7 +21,7 @@
             {
                 <tr>
                     <td>
-                        <a href="~/Home/GetBatteryConditionsByBatteryModel/@modelBattery.BatteryModelId">
+                        <a href="~/Home/GetBatteryConditionsByBatteryModel/@modelBattery.Id">
                             @modelBattery.BatteryModelName
                         </a>
                     </td>
@@ -40,16 +41,21 @@
             @foreach (var pack in Model.BatteryPacks)
             {
                 <tr>
-                    <td><a href="/Home/GetBatteryPack/@pack.BatteryPackId">
-                        @pack.AddressByDate.House.Street.StreetName @pack.AddressByDate.House.HouseNumber</a></td>
-                    <td>@pack.BatteryConditionBatteryPacks.Last().BatteryCondition.BatteryModel.BatteryBrand.BatteryBrandName 
-                        @pack.BatteryConditionBatteryPacks.Last().BatteryCondition.BatteryModel.BatteryModelName</td>
-                    <td>@pack.BatteryConditionBatteryPacks.Count</td>
-                </tr>
-            }
+                    <td>
+                        <a href="/Home/GetBatteryPack/@pack.Id">
+                            @pack.AddressByDate.House.Street.StreetName @pack.AddressByDate.House.HouseNumber
+                        </a>
+                    </td>
+                    <td>
+                        @pack.BatteryConditionBatteryPacks.Last().BatteryCondition.BatteryModel.BatteryBrand.BatteryBrandName
+                    @pack.BatteryConditionBatteryPacks.Last().BatteryCondition.BatteryModel.BatteryModelName
+                </td>
+                <td>@pack.BatteryConditionBatteryPacks.Count</td>
+            </tr>
+        }
         </table>
         <h3>Добавить АКБ</h3>
-        
+
         @Html.ActionLink("Добавление АКБ", "CreateBatteryCondition", "Create")
     </body>
 

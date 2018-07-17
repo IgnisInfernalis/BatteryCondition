@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc;
 using BatteryConditionInventory.Models;
 using BatteryConditionInventory.Models.ViewModels;
 using Microsoft.EntityFrameworkCore;
+using BatteryConditionInventory.Infrastructure.Data;
+using BatteryConditionInventory.Core.Entities;
 
 namespace BatteryConditionInventory.Controllers
 {
@@ -38,7 +40,7 @@ namespace BatteryConditionInventory.Controllers
         [HttpPost]
         public IActionResult CreateBatteryCondition(CreateBatteryConditionViewModel createBattery)
         {
-            Models.BatteryCondition batteryCondition = new Models.BatteryCondition();
+            BatteryCondition batteryCondition = new BatteryCondition();
             batteryCondition.AddressByDates = new List<AddressByDate>();
             // Проверка на существование уже записи в таблицах House и Street
             if (db.Houses.ToList().Exists(h=>h.HouseNumber== createBattery.AddressByDate.House.HouseNumber)&&
@@ -64,7 +66,7 @@ namespace BatteryConditionInventory.Controllers
                 );
             }            
             batteryCondition.BatteryLocalId = createBattery.BatteryLocalId;
-            batteryCondition.BatteryModelId = createBattery.BatteryModel.BatteryModelId;
+            batteryCondition.BatteryModelId = createBattery.BatteryModel.Id;
             
             db.BatteryConditions.Add(batteryCondition);
             db.SaveChanges();
