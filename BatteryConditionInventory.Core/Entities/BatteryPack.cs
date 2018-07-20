@@ -10,6 +10,7 @@ namespace BatteryConditionInventory.Core.Entities
         // Связь многие-ко-многим
         public ICollection<BatteryConditionBatteryPack> 
             BatteryConditionBatteryPacks { get; set; }
+
         //Lazy Load
         //public virtual ICollection<BatteryConditionBatteryPack> BatteryConditionBatteryPacks { get; set; }
 

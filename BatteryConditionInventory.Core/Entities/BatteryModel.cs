@@ -16,5 +16,6 @@ namespace BatteryConditionInventory.Core.Entities
 
         public int? BatteryBrandId { get; set; }
         public BatteryBrand BatteryBrand { get; set; }
+        // public string Battery { get { return BatteryBrand.BatteryBrandName; } set { value = BatteryBrand.BatteryBrandName; } }
     }
 }

@@ -56,7 +56,7 @@ namespace BatteryConditionInventory.Controllers
                 .Include(bcbp => bcbp.BatteryConditionBatteryPack) //пустая таблица сейчас при генерации!
                     .ThenInclude(bp => bp.BatteryPack).ThenInclude(ad => ad.AddressByDate).ThenInclude(h => h.House).ThenInclude(s => s.Street)
                 .Include(cd => cd.CapacityByDates)
-                .First(i => i.Id == id);
+                .First(i => i.Id == id);            
             return View(batteryCondition);
         }
 
