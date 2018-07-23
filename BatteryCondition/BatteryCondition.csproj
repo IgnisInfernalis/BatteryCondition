@@ -5,6 +5,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Models\Address\**" />
+    <Compile Remove="Models\Battery\**" />
+    <Content Remove="Models\Address\**" />
+    <Content Remove="Models\Battery\**" />
+    <EmbeddedResource Remove="Models\Address\**" />
+    <EmbeddedResource Remove="Models\Battery\**" />
+    <None Remove="Models\Address\**" />
+    <None Remove="Models\Battery\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.8" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.0.3" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.0.3" />
@@ -16,8 +27,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Models\Address\" />
-    <Folder Include="Models\Battery\" />
+    <Folder Include="Views\Get\" />
   </ItemGroup>
 
 </Project>

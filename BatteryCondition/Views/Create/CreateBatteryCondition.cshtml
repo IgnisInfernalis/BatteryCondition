@@ -19,6 +19,7 @@
         <p>Улица: @Html.TextBoxFor(m => m.AddressByDate.House.Street.StreetName)</p>
         <p>Номер модели АКБ @Html.DropDownListFor(m=>m.BatteryModel.BatteryModelId,
                            new SelectList(Model.BatteryModels, nameof(BatteryModel.BatteryModelId), nameof(BatteryModel.BatteryModelName)))</p>
+        <p>Емкость АКБ "Кулон": @Html.TextBoxFor(m => m.CapacityByDate.Capacity)</p>
         
         <input type="submit" value="Добавить" />
     }

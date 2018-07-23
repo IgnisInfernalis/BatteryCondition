@@ -1,0 +1,50 @@
+﻿@using BatteryCondition.Models.ViewModels;
+@using BatteryCondition.Models;
+@model BatteryPackViewModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>GetBatteryPackTest</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <td>Адрес</td>
+            <td>Дата установки</td>
+            
+        </tr>
+        <tr>
+            <td>@Model.Address</td>
+            <td>@Model.Date</td>
+            
+        </tr>
+    </table>
+    <table>
+        <tr>
+            <td>Модель АКБ</td>
+            <td>Производитель</td>
+            <td>Номер АКБ</td>
+            <td>Дата установки</td>
+        </tr>
+        @foreach (var pack in Model.BatteryConditions)
+        {
+        <tr>
+            <td>
+                @pack.BatteryModel.BatteryModelName
+            </td>
+            <td>
+                @pack.BatteryModel.BatteryBrand.BatteryBrandName
+            </td>
+            <td>@pack.BatteryLocalId</td>
+            <td>@pack.AddressByDates.Last().Date.Date</td>
+        </tr>
+    }
+    </table>
+</body>
+</html>

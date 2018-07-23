@@ -14,13 +14,14 @@ namespace BatteryCondition.Models
         public int? BatteryModelId { get; set; }
         public BatteryModel BatteryModel { get; set; }
         
-        public virtual ICollection<AddressByDate> AddressByDates { get; set; }
-        public virtual ICollection<CapacityByDate> CapacityByDates { get; set; }
-        public virtual ICollection<BatteryConditionBatteryPack> BatteryConditionBatteryPack { get; set; }
+        public ICollection<AddressByDate> AddressByDates { get; set; }
+        public ICollection<CapacityByDate> CapacityByDates { get; set; }
+        public ICollection<BatteryConditionBatteryPack> BatteryConditionBatteryPacks { get; set; }
         
         public BatteryCondition()
         {
-            BatteryConditionBatteryPack = new List<BatteryConditionBatteryPack>();
+            BatteryConditionBatteryPacks = new List<BatteryConditionBatteryPack>();
+            AddressByDates = new List<AddressByDate>();
         }
     }
 }

@@ -10,7 +10,7 @@ namespace BatteryCondition.Models
         public int BatteryPackId { get; set; }
         public AddressByDate AddressByDate { get; set; }
         // связь многие-ко-многим
-        public virtual ICollection<BatteryConditionBatteryPack> BatteryConditionBatteryPacks { get; set; }
+        public ICollection<BatteryConditionBatteryPack> BatteryConditionBatteryPacks { get; set; }
 
         public BatteryPack()
         {

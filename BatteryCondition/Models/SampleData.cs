@@ -65,7 +65,7 @@ namespace BatteryCondition.Models
             if (!context.AddressByDates.Any())
             {
                 context.AddressByDates.AddRange(
-                    new AddressByDate { House = context.Houses.ToList().Find(h => h.HouseNumber == "240а"), DateTime = DateTime.Today,
+                    new AddressByDate { House = context.Houses.ToList().Find(h => h.HouseNumber == "240а"), Date = DateTime.Today,
                         BatteryCondition =new BatteryCondition
                         {                            
                             BatteryLocalId = 110,
@@ -77,8 +77,9 @@ namespace BatteryCondition.Models
             context.SaveChanges();
             if (!context.BatteryPacks.Any())
             {
-                context.BatteryPacks.Add(
-                    new BatteryPack { AddressByDate=context.AddressByDates.ToList().Find(a=>a.House == (context.Houses.ToList().Find(h => h.HouseNumber == "240а"))) }
+                context.BatteryPacks.AddRange(
+                    new BatteryPack { AddressByDate=context.AddressByDates.ToList().Find(a=>a.House == (context.Houses.ToList().Find(h => h.HouseNumber == "240а"))) },
+                    new BatteryPack { AddressByDate = context.AddressByDates.ToList().Find(a => a.House == (context.Houses.ToList().Find(h => h.HouseNumber == "23"))) }
                     );
             }
             context.SaveChanges();

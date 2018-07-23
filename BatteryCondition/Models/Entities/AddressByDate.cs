@@ -5,15 +5,16 @@ using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BatteryCondition.Models
-{
+{   
     //[NotMapped]
-    public class CapacityByDate
+    public class AddressByDate
     {
-        public int CapacityByDateId { get; set; }
-        public float Capacity { get; set; }
-        public DateTime DateTime { get; set; }
+        public int AddressByDateId { get; set; }
+        public House House { get; set; } // односторонняя связь один-ко-многим
+        public DateTime Date { get; set; }
 
         public int? BatteryConditionId { get; set; }
         public BatteryCondition BatteryCondition { get; set; }
+                
     }
 }

@@ -32,6 +32,7 @@ namespace BatteryCondition.Controllers
             
             createBattery.BatteryModels = db.BatteryModels.ToList();
             createBattery.BatteryConditionBatteryPack = new BatteryConditionBatteryPack();
+            createBattery.CapacityByDate = new CapacityByDate();
             
             return View(createBattery);
         }
@@ -49,7 +50,7 @@ namespace BatteryCondition.Controllers
                     House = db.Houses.ToList().Find(h=>h.HouseNumber== createBattery.AddressByDate.House.HouseNumber &&
                         h.Street.StreetName== createBattery.AddressByDate.House.Street.StreetName),
                     BatteryCondition = batteryCondition,
-                    DateTime = DateTime.Today
+                    Date = DateTime.Today
                 });
             }
             else
@@ -59,13 +60,14 @@ namespace BatteryCondition.Controllers
                 {
                     House = createBattery.AddressByDate.House,
                     BatteryCondition = batteryCondition,
-                    DateTime = DateTime.Today
+                    Date = DateTime.Today
                 }
                 );
-            }            
+            }         
+            
             batteryCondition.BatteryLocalId = createBattery.BatteryLocalId;
             batteryCondition.BatteryModelId = createBattery.BatteryModel.BatteryModelId;
-            
+            // batteryCondition.CapacityByDates.Add(createBattery.CapacityByDate);
             db.BatteryConditions.Add(batteryCondition);
             db.SaveChanges();
             return RedirectToAction("Index");

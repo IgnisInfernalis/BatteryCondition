@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc;
 using BatteryCondition.Models;
 using BatteryCondition.Models.ViewModels;
 using Microsoft.EntityFrameworkCore;
+using BatteryCondition.Models.GetViewModels;
+
 
 namespace BatteryCondition.Controllers
 {
@@ -51,7 +53,7 @@ namespace BatteryCondition.Controllers
             batteryCondition = db.BatteryConditions
                 .Include(ad => ad.AddressByDates).ThenInclude(h => h.House).ThenInclude(s => s.Street)
                 .Include(bm => bm.BatteryModel).ThenInclude(bb => bb.BatteryBrand)
-                .Include(bcbp => bcbp.BatteryConditionBatteryPack) //пустая таблица сейчас при генерации!
+                .Include(bcbp => bcbp.BatteryConditionBatteryPacks) //пустая таблица сейчас при генерации!
                     .ThenInclude(bp => bp.BatteryPack).ThenInclude(ad => ad.AddressByDate).ThenInclude(h => h.House).ThenInclude(s => s.Street)
                 .Include(cd => cd.CapacityByDates)
                 .First(i => i.BatteryConditionId == id);
@@ -65,6 +67,11 @@ namespace BatteryCondition.Controllers
             batteryPack = db.BatteryPacks.Include(ad => ad.AddressByDate).ThenInclude(h => h.House).ThenInclude(s => s.Street)
                 .Include(b => b.BatteryConditionBatteryPacks).ThenInclude(bcbp => bcbp.BatteryCondition).First(bp => bp.BatteryPackId == id);
             return View(batteryPack);
+        }
+        [HttpGet]
+        public IActionResult GetBatteryPackTest(int Id)
+        {
+            return View(GetBatteryPackViewModel.GetViewModel(db, Id));
         }
         
         public IActionResult Error()
