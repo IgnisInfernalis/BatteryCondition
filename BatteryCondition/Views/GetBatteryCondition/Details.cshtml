@@ -1,0 +1,41 @@
+﻿@using BatteryCondition.Models.ViewModels
+@model BatteryConditionViewModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>GetBatteryConditionView</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <td><b>Номер</b></td>
+            <td><b>Производитель</b></td>
+            <td><b>Модель</b></td>
+            <td><b>Емкость, Ач</b></td>
+            <td><b>Батарейный блок</b></td>
+            <td><b>Дата установки</b></td>
+            <td><b>Емкость "Кулон", Ач</b></td>
+            <td><b>Дата измерения</b></td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayFor(m => m.BatteryLocalId)</td>
+            <td>@Html.DisplayFor(m => m.BatteryBrandName)</td>
+            <td>@Html.DisplayFor(m => m.BatteryModelName)</td>
+            <td>@Html.DisplayFor(m => m.BatteryModelCapacity)</td>
+            <td>@Html.DisplayFor(m => m.LastBatteryPack.AddressByDate.House.Street.StreetName)
+                @Html.DisplayFor(m => m.LastBatteryPack.AddressByDate.House.HouseNumber)
+            </td>
+            <td>@Html.DisplayFor(m => m.LastDate.Date)</td>
+            <td>@Html.DisplayFor(m => m.LastCapacity)</td>
+            <td>@Html.DisplayFor(m => m.LastCapacityDate)</td>
+        </tr>
+    </table>
+    
+</body>
+</html>
